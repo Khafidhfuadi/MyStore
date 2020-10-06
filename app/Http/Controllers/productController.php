@@ -38,13 +38,13 @@ class productController extends Controller
       ]);
       $product->update($request->all());
       return redirect('table');
-        
+
     }
 
-    public function destroy(Product $product)
-    {
-      $product->delete();
-    }
+    // public function destroy(Product $product)
+    // {
+    //   $product->delete();
+    // }
 
 
 }

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table table-bordered table-striped table-hover">
+<table class="table table-striped table-hover table-success">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th>#</th>
         <th scope="col">Nama Produk</th>
         <th scope="col">Nama Slug</th>
         <th scope="col">Gambar</th>
@@ -15,14 +15,13 @@
     @foreach ($product as $merk)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{$merk->product_title}}</td>
-        <td>{{$merk->product_slug}}</td>
-        <td>{{$merk->product_image}}</td>
-        <td class="text-center">
-            <form action="{{ route('product.destroy', $merk->id) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <a href="{{ route('product.edit', $merk->id) }}" class="btn btn-warning btn-sm">
+        <td scope="row">{{$merk->product_title}}</td>
+        <td scope="row">{{$merk->product_slug}}</td>
+        <td scope="row">{{$merk->product_image}}</td>
+        <td scope="row" class="text-center">
+            <form action="" method="" >
+                <div class="row"></div>
+                <a href="{{ route('product.edit', $merk->id) }}" class="btn btn-warning btn-sm mb-3">
                 Ubah</a>
                 <button type="submit" class="btn btn-danger btn-sm">
                 Hapus</i></button>

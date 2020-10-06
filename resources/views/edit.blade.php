@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col text-left">Update Product</div>
                         <div class="col text-right">
-                        <a href="{{url('table')}}" class="btn btn-xs btn-dark">
+                        <a href="{{url('table')}}" class="btn btn-xs btn-danger">
                             <i class="fa fa-backspace"></i> Back
                         </a>
                     </div>

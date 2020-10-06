@@ -12,4 +12,6 @@ class Product extends Model
       ];
 
     protected $table = "products";
+
+    use HasFactory;
 }
