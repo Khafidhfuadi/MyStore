@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('table', $url . "\productController@showTable");
-Route::get('product/{slug}', $url . "\productController@showProduct");
+Route::get('product/{slug}', $url . '\ProductController@showProduct');
 Route::resource('product', $url . '\ProductController');
+
+

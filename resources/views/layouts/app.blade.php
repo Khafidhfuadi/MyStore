@@ -27,6 +27,14 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="{{url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700')}}" rel="stylesheet">
 </head>
+<style>
+svg.w-5.h-5 {
+    width: 30px;
+}
+p.text-sm.text-gray-700.leading-5 {
+    margin-top: 20px;
+}
+</style>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -218,7 +226,7 @@
             </a>
           </li>
           <li class="nav-item">
-              <a href="{{url('table')}}" class="nav-link">
+              <a href="{{ route('product.index')}}" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>Product</p>
               </a>
@@ -231,23 +239,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -310,5 +302,18 @@
 <script src="{{url('js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('js/demo.js')}}"></script>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
+<script src="js/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove();
+            });
+        }, 2000);
+    });
+</script>
 </body>
 </html>
