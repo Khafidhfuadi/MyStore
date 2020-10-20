@@ -22,19 +22,19 @@ class productController extends Controller
       return view('product', compact('product'));
     }
 
-    public function showProduct($slug)
-    {
-    //   $product = Product::where('product_slug', $slug)
-    //           ->firstOrFail();
+    // public function showProduct($slug)
+    // {
+    // //   $product = Product::where('product_slug', $slug)
+    // //           ->firstOrFail();
 
-    //   // if (!$data) {
-    //   //     abort(404);
-    //   // }
-    //   // Atau dengan firstOrFail();
+    // //   // if (!$data) {
+    // //   //     abort(404);
+    // //   // }
+    // //   // Atau dengan firstOrFail();
 
-      // dd($data);
-      return view('add');
-    }
+    //   // dd($data);
+    //   return view('add');
+    // }
 
     /**
      * Show the form for creating a new resource.

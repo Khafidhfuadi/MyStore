@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('product/{slug}', $url . '\ProductController@showProduct');
-Route::resource('product', $url . '\ProductController');
+Route::middleware(['auth:sanctum', 'verified'])->resource('product', $url . '\ProductController');
 //EXPORT
 Route::get('product/export/xlsx', $url . '\ProductController@exportXL');
 Route::get('product/export/csv', $url . '\ProductController@exportCSV');
