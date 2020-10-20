@@ -174,8 +174,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
+        App\Providers\JetstreamServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
-
+        // Excel
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        // DompPDF
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -227,6 +232,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //Excel
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        //DumpPDF
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

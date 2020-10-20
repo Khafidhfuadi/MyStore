@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
+use App\Exports\ProductsExport;
+use App\Imports\ProductsImport;
+use Maatwebsite\Excel\Facades\Excel;
+// use PDF;
+
+// use Brian2694\Toastr\Facades\Toastr;
+
 
 class productController extends Controller
 {
@@ -48,7 +55,7 @@ class productController extends Controller
     public function store(Request $request)
     {
         if (Product::where('product_slug', $request->product_slug)->exists()) {
-            return redirect('/product/create')->with('error','Slug sudah tersedia');
+                return redirect('/product/create')->with('error','Slug sudah tersedia');
           } else{
             $product = new Product;
             $product->product_title = $request->product_title;
@@ -118,5 +125,31 @@ class productController extends Controller
       $product->delete();
     //   Toastr::success('Data Has Been Delete','Success');
       return redirect('product')->with('info','Data Berhasil Dihapus!');;
+    }
+
+    public function exportXL() {
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
+
+    public function exportCSV() {
+        return Excel::download(new ProductsExport, 'products.csv');
+    }
+
+    public function exportPDF() {
+        return Excel::download(new ProductsExport, 'products.pdf');
+
+    }
+
+    public function upload() {
+        return view('uploadData');
+    }
+
+    public function uploadData(Request $request) {
+
+        $data = Excel::import(new ProductsImport, $request->file('file')->store('temp'));
+
+
+
+        return redirect('/product')->with('info','Sukses upload data');
     }
 }
